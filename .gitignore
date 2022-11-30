@@ -48,6 +48,5 @@ Temporary Items
 build/
 .vs
 .vs*
-CMake/
 converter/
 x64/

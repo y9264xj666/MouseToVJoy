@@ -1,14 +1,8 @@
-# 20.03.2020 New version of program avaliable on https://r1per.itch.io/mtvj
 # MouseToVJoy
-> Application that converts mouse/keyboard input to vjoy output.
+> 鼠标/键盘输出到vjoy的程序
 
 Simple application that converts mouse/keyboard input to vjoy output, created using vjoyinferace and winapi32.
 
-![](header.PNG)
-## Download
-
-Releases tap on Github or https://github.com/R1PeR/MouseToVJoy/releases
-You need all three files
 
 ## Installation
 
