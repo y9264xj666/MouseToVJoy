@@ -25,7 +25,7 @@ CInputDevices rInput;//Class that helps with determining what key was pressed.
 FileRead fR;//Class used for reading and writing to config.txt file.
 ForceFeedBack fFB;//Used to recive and interpret ForceFeedback calls from game window.
 Stopwatch sw;//Measuring time in nanoseconds
-INT axisX, axisY, axisZ, axisRX, ffbStrength; //Local variables that stores all axis values and forcefeedback strength we need.
+INT axisX, axisY, axisZ, axisRX, axisRY, axisRZ, ffbStrength; //Local variables that stores all axis values and forcefeedback strength we need.
 BOOL isButton1Clicked, isButton2Clicked, isButton3Clicked; //Bools that stores information if button was pressed.
 void CALLBACK FFBCALLBACK(PVOID data, PVOID userData) {//Creating local callback which just executes callback from ForceFeedBack class.
 	fFB.ffbToVJoy(data, userData);
@@ -89,8 +89,8 @@ void updateCode() {
 		axisX = axisX + ffbStrength;
 		ffbStrength = 0;
 	}
-	mTV.inputLogic(rInput, axisX, axisY, axisZ, axisRX, isButton1Clicked, isButton2Clicked, isButton3Clicked, fR.result(1), fR.result(2), fR.result(3), fR.result(4), fR.result(5), fR.result(6), fR.result(7), fR.result(8), fR.result(9), fR.result(10), fR.result(11), fR.result(12), fR.result(13), fR.result(14), fR.result(15), fR.result(17), fR.result(18), fR.result(19), fR.result(22), sw.elapsedMilliseconds());
-	vJ.feedDevice(1, axisX, axisY, axisZ, axisRX, isButton1Clicked, isButton2Clicked, isButton3Clicked);
+	mTV.inputLogic(rInput, axisX, axisY, axisZ, axisRX, axisRY, axisRZ, isButton1Clicked, isButton2Clicked, isButton3Clicked, fR.result(1), fR.result(2), fR.result(3), fR.result(4), fR.result(5), fR.result(6), fR.result(7), fR.result(8), fR.result(9), fR.result(10), fR.result(11), fR.result(12), fR.result(13), fR.result(14), fR.result(15), fR.result(17), fR.result(18), fR.result(19), fR.result(22), sw.elapsedMilliseconds());
+	vJ.feedDevice(1, axisX, axisY, axisZ, axisRX, axisRY, axisRZ, isButton1Clicked, isButton2Clicked, isButton3Clicked);
 	isButton1Clicked = false;
 	isButton2Clicked = false;
 }

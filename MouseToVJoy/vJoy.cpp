@@ -26,6 +26,7 @@ int VJoy::testDriver() {
 	printf("OK - Driver and DLL match\n");
 
 }
+
 //Tests if UINT iInterface is existing.
 int VJoy::testVirtualDevices(UINT iInterface) {
 	// Get the state of the requested device (iInterface)
@@ -51,6 +52,7 @@ Cannot continue\n", iInterface);
 		return -1;
 	};
 }
+
 //If UINT iInterface is existing, tries to accuire it.
 int VJoy::accuireDevice(UINT iInterface) {
 	// Acquire the target if not already owned
@@ -65,6 +67,7 @@ int VJoy::accuireDevice(UINT iInterface) {
 		printf("Acquired: vJoy device number %d.\n", iInterface);
 	}
 }
+
 //If UINT iInterface exist, enable FFB to device.
 int VJoy::enableFFB(UINT iInterface) {
 	// Acquire the target if not already owned
@@ -78,13 +81,16 @@ int VJoy::enableFFB(UINT iInterface) {
 	return 0;
 }
 //When UINT iInterface is accuired, feeds vars X Y Z RX to Axises X Y Z RX.
-void VJoy::feedDevice(UINT iInterface, INT X, INT Y, INT Z, INT RX, BOOL BUTTON1, BOOL BUTTON2, BOOL BUTTON3) {
+void VJoy::feedDevice(UINT iInterface, INT X, INT Y, INT Z, INT RX, INT RY, INT RZ, BOOL BUTTON1, BOOL BUTTON2, BOOL BUTTON3) {
 	//Reports all axies to virtual joystick.
 	_iReport.bDevice = iInterface;
 	_iReport.wAxisX = X;
 	_iReport.wAxisY = Y;
 	_iReport.wAxisZ = Z;
 	_iReport.wAxisXRot = RX;
+	_iReport.wAxisYRot = RY;
+	_iReport.wAxisZRot = RZ;
+
 	if (BUTTON1) _iReport.lButtons |= 0x1; else _iReport.lButtons &= 0xFE;
 	if (BUTTON2) _iReport.lButtons |= 0x2; else _iReport.lButtons &= 0xFD;
 	if (BUTTON3) _iReport.lButtons |= 0x4; else _iReport.lButtons &= 0xFB;
